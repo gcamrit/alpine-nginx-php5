@@ -20,11 +20,12 @@ RUN apk --update add \
 	php-dom \
 	php-xdebug \
 	php-memcached \
-  	supervisor
+  	supervisor \
+    --update-cache \
+    --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+    --allow-untrusted
 
-RUN mkdir -p /etc/nginx
-RUN mkdir -p /var/run/php-fpm
-RUN mkdir -p /var/log/supervisor
+RUN rm -rf /var/cache/apk/*
 
 RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
@@ -37,4 +38,8 @@ RUN rm -rf /var/cache/apk/*
 
 EXPOSE 80 9000
 
+VOLUME /var/www
+
 CMD ["/usr/bin/supervisord"]
+
+ENTRYPOINT ["/bin/sh", "-c"]
