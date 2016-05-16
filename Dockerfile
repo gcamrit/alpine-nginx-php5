@@ -29,6 +29,7 @@ RUN rm -rf /var/cache/apk/*
 
 RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
+ADD conf/default.conf /etc/nginx/default.d/default.conf
 
 VOLUME ["/var/www", "/etc/nginx/sites-enabled"]
 
