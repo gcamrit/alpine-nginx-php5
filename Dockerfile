@@ -40,6 +40,6 @@ EXPOSE 80 9000
 
 VOLUME /var/www
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c"]
 
 ENTRYPOINT ["/bin/sh", "-c"]
