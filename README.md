@@ -20,6 +20,6 @@ docker run -v $(pwd):/var/www -p 80:80 amritgc/alpine-nginx-php5
 You can use it as a base image like below:
 
 ```
-FROM geshan/amritgc/alpine-nginx-php5
+FROM amritgc/alpine-nginx-php5
 
 ```
