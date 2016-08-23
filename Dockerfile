@@ -3,6 +3,7 @@ MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
 RUN apk --update add \
 	nginx \
+	curl \
 	php-fpm \
 	php-pdo \
 	php-json \
@@ -26,6 +27,7 @@ RUN apk --update add \
     --allow-untrusted
 
 RUN rm -rf /var/cache/apk/*
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
 
 RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
