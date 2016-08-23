@@ -1,7 +1,8 @@
 FROM alpine:3.3
 MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
-RUN apk --update add \
+RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk --update add \
 	nginx \
 	curl \
 	php-fpm \
@@ -19,11 +20,8 @@ RUN apk --update add \
 	php-gd \
 	php-xml \
 	php-dom \
-	php-xdebug \
-	php-memcached \
   	supervisor \
     --update-cache \
-    --repository http://dl-5.alpinelinux.org/alpine/edge/testing/ \
     --allow-untrusted
 
 RUN rm -rf /var/cache/apk/*
