@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.4
 MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
 RUN apk --update add \
