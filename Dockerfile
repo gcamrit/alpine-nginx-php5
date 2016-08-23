@@ -6,6 +6,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
 	nginx \
 	curl \
 	php-fpm \
+	php-phar \
 	php-pdo \
 	php-json \
 	php-openssl \
