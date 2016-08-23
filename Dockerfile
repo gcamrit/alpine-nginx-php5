@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.3
 MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
 RUN apk --update add \
@@ -23,7 +23,7 @@ RUN apk --update add \
 	php-memcached \
   	supervisor \
     --update-cache \
-    --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+    --repository http://dl-5.alpinelinux.org/alpine/edge/testing/ \
     --allow-untrusted
 
 RUN rm -rf /var/cache/apk/*
