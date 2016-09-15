@@ -56,9 +56,6 @@ RUN rm -rf /var/cache/apk/*
 
 EXPOSE 80 9000
 
-VOLUME /var/www
-
 CMD ["/usr/bin/supervisord", "-c"]
 
-ENTRYPOINT ["/usr/bin/php"]
-CMD ["-v"]
+ENTRYPOINT ["/bin/sh", "-c"]
