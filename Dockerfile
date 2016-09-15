@@ -39,10 +39,9 @@ RUN apk --update add --no-cache --update \
             --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
             --allow-untrusted \
     wkhtmltopdf \
-    php5-memcached; \
+    php5-memcached;
 
-RUN rm -rf /var/cache/apk/*
-RUN curl -sS https://getcomposer.org/installer | php5 -- --install-dir=/usr/bin --filename=composer 
+RUN curl -sS https://getcomposer.org/installer | php5 -- --install-dir=/usr/bin --filename=composer
 
 RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
@@ -60,4 +59,5 @@ VOLUME /var/www
 
 CMD ["/usr/bin/supervisord", "-c"]
 
-ENTRYPOINT ["/bin/sh", "-c"]
+ENTRYPOINT ["/usr/bin/php"]
+CMD ["-v"]
