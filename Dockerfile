@@ -41,7 +41,7 @@ RUN apk --update add --no-cache --update \
     wkhtmltopdf \
     php5-memcached;
 
-RUN curl -sS https://getcomposer.org/installer | php5 -- --install-dir=/usr/local/bin --filename=composer; \
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
     chmod +x /usr/local/bin/composer;
 
 RUN rm /etc/nginx/nginx.conf
