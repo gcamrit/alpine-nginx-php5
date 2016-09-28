@@ -48,14 +48,12 @@ RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD conf/default.conf /etc/nginx/default.d/default.conf
 
-VOLUME ["/var/www", "/etc/nginx/sites-enabled"]
-
 ADD conf/nginx-supervisor.ini /etc/supervisor.d/nginx-supervisor.ini
 
 RUN rm -rf /var/cache/apk/*
 
-EXPOSE 80 9000
-
-CMD ["/usr/bin/supervisord", "-c"]
-
-ENTRYPOINT ["/bin/sh", "-c"]
+COPY . /app
+WORKDIR /app
+COPY conf/zzz-custom.ini /etc/php5/conf.d/
+EXPOSE 80
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/nginx-supervisor.ini"]
