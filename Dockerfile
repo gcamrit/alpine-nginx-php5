@@ -52,7 +52,6 @@ ADD conf/nginx-supervisor.ini /etc/supervisor.d/nginx-supervisor.ini
 
 RUN rm -rf /var/cache/apk/*
 
-COPY . /app
 WORKDIR /app
 COPY conf/zzz-custom.ini /etc/php5/conf.d/
 EXPOSE 80
