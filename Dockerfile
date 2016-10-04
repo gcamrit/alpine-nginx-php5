@@ -48,7 +48,7 @@ RUN rm /etc/nginx/nginx.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD conf/default.conf /etc/nginx/default.d/default.conf
 
-ADD conf/nginx-supervisor.ini /etc/supervisor.d/nginx-supervisor.ini
+ADD conf/nginx-supervisor.ini /etc/supervisor/conf.d/nginx-supervisor.ini
 
 RUN rm -rf /var/cache/apk/*
 
